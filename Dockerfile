@@ -1,9 +1,9 @@
 FROM openjdk:17-jdk-alpine
 
-COPY target/your-app.jar /usr/app/your-app.jar
+WORKDIR /app
 
-WORKDIR /usr/app
+COPY out/artifacts/portafolio-backend_jar/portafolio-backend.jar /app/portafolio-backend.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "your-app.jar"]
+ENTRYPOINT ["java", "-jar", "portafolio-backend.jar"]
