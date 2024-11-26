@@ -1,10 +1,25 @@
 package com.portafolio.portfolio_backend.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class EmailRequest {
 
+    @NotBlank(message = "From email is required")
+    @Email(message = "Invalid email format")
     private String from;
+
+    @NotBlank(message = "To email is required")
+    @Email(message = "Invalid email format")
     private String to;
+
+    @NotBlank(message = "Subject is required")
+    @Size(max = 100, message = "Subject should not exceed 100 characters")
     private String subject;
+
+    @NotBlank(message = "Message body is required")
+    @Size(min = 1, message = "Message body is required")
     private String bodyText;
 
     // Getters and Setters
