@@ -2,10 +2,8 @@ FROM openjdk:17-jdk
 
 WORKDIR /app
 
-COPY out/artifacts/portfolio_backend_jar/portfolio-backend.jar /app/portfolio-backend.jar
-
-RUN ls /app
+COPY out/artifacts/portfolio/portfolio-backend.jar /app/portfolio.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "portafolio-backend.jar"]
+ENTRYPOINT ["java", "-jar", "/app/portfolio.jar"]

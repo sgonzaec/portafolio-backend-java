@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.portafolio</groupId>
-	<artifactId>portfolio-backend</artifactId>
+	<artifactId>portfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>portfolio-backend</name>
+	<name>portfolio</name>
 	<description>Backend service for my personal portfolio built with React</description>
 	<url/>
 	<licenses>
