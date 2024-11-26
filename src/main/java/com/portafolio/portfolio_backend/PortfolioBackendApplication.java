@@ -9,6 +9,7 @@ public class PortfolioBackendApplication {
 
 	public static void main(String[] args) {
 		String environment = System.getenv("ENVIRONMENT");
+		System.out.println(environment);
 		if (environment == null || !environment.equals("production")) {
 			// Solo carga .env si NO estás en producción
 			try {
