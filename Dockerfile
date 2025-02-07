@@ -1,9 +1,18 @@
-FROM openjdk:17-jdk
+FROM maven:3.8.7-eclipse-temurin-17 AS build
 
 WORKDIR /app
 
-COPY out/artifacts/portfolio/portfolio-backend.jar /app/portfolio.jar
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-EXPOSE 8080
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-ENTRYPOINT ["java", "-jar", "/app/portfolio.jar"]
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+
+COPY --from=build out/artifacts/portfolio/portfolio-backend.jar /app/portfolio.jar
+
+EXPOSE 8000
+
+ENTRYPOINT ["java", "-jar", "/app/portfolio.jar", "--server.port=8000"]
