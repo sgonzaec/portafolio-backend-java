@@ -11,7 +11,7 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-COPY --from=build out/artifacts/portfolio/portfolio-backend.jar portfolio.jar
+COPY --from=build /app/target/portfolio-backend.jar portfolio.jar
 
 EXPOSE 8000
 
